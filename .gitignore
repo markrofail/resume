@@ -4,3 +4,6 @@
 *.log
 *.out
 
+main.fls
+main.fdb_latexmk
+main.synctex.gz

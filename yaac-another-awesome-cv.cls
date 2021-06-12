@@ -56,8 +56,8 @@
 \RequirePackage[usenames,dvipsnames]{xcolor}
 \RequirePackage{fullpage}
 \RequirePackage[margin=1.5cm]{geometry}
-\RequirePackage{fontawesome}
-\RequirePackage{hyperref}
+\RequirePackage{fontawesome5}
+\RequirePackage[hidelinks]{hyperref}
 \RequirePackage{titlesec}
 \RequirePackage{array}
 \RequirePackage{enumitem}
@@ -131,6 +131,7 @@
 %
 
 % Define font to use according to localFont option
+\defaultfontfeatures{ Scale = MatchUppercase } 
 \ifundef{\@local}
 {
     %\setmainfont[BoldFont = Helvetica Neue, ItalicFont=Helvetica Neue Thin Italic ,SmallCapsFont = Helvetica Neue Light]{Helvetica Neue Thin}
@@ -140,6 +141,7 @@
 }
 {
     \setmainfont{SourceSansPro-Light}[
+        Scale = 1,
         Path = fonts/, 
         BoldFont = SourceSansPro-Regular, 
         ItalicFont = SourceSansPro-LightIt]
@@ -174,16 +176,16 @@
 
 % Font Awesome icons aliases
 \newcommand{\mailSymbol}{\faAt}
-\newcommand{\locationSymbol}{\faMapMarker}
+\newcommand{\locationSymbol}{\faMapMarker*}
 \newcommand{\infoSymbol}{\faInfo}
 \newcommand{\blogSymbol}{\faRssSquare}
 \newcommand{\cvpdfSymbol}{\faFilePdfO}
 \newcommand{\linkedinSymbol}{\faLinkedin}
 \newcommand{\viadeoSymbol}{\faViadeo}
-\newcommand{\mobileSymbol}{\faMobilePhone}
+\newcommand{\mobileSymbol}{\faMobile*}
 \newcommand{\githubSymbol}{\faGithub}
 
-\newcommand\link[2]{\color{linkcolor}\href{#1}{#2}\color{Blue} }
+\newcommand\link[2]{\color{linkcolor}\href{#1}{#2}\color{Black}}
 \newcommand\important[1]{\textbf #1}
 
 % Create a tag
@@ -233,16 +235,16 @@
 
 % Render author's blog
 % Usage: \blog{<blog>}
-\newcommand*{\blog}[1]{\sociallink{\blogSymbol}{http://www.#1}{\underline{#1}}}
+\newcommand*{\blog}[1]{\sociallink{\blogSymbol}{http://www.#1}{{#1}}}
 
 % Render author's PDF CV
 % Usage: \cvpdf{<cvpdf>}
-\newcommand*{\cvpdf}[1]{\sociallink{\cvpdfSymbol}{http://www.#1}{\underline{#1}}}
+\newcommand*{\cvpdf}[1]{\sociallink{\cvpdfSymbol}{http://www.#1}{{#1}}}
 
 % Render author's linked-in (optional)
 % Usage: \linkedin{<linked-in-nick>}
 \newcommand*{\linkedin}[1]{\sociallink{\linkedinSymbol}
-    {http://www.linkedin.com/in/#1}{\underline{linkedin.com/in/#1}}}
+    {http://www.linkedin.com/in/#1}{{linkedin.com/in/#1}}}
 
 % Render author's viadeo(optional)
 % Usage: \viadeo{<viadeo-nick>}
@@ -259,11 +261,11 @@
 % Render author's github (optional)
 % Usage: \github{<github-nick>}
 \newcommand*{\github}[1]{\sociallink{\githubSymbol}
-    {https://www.github.com/#1}{\underline{github.com/#1}}}
+    {https://www.github.com/#1}{{github.com/#1}}}
 
 % Render author's email (optional)
 % Usage: \email{<email adress>}
-\newcommand*{\email}[1]{\sociallink{\mailSymbol}{mailto:#1}{\underline{#1}}}
+\newcommand*{\email}[1]{\sociallink{\mailSymbol}{mailto:#1}{{#1}}}
 
 % Render author's mobile phone (optional)
 % Usage: \smartphone{<mobile phone number>}
@@ -399,7 +401,7 @@
 % Render a skill in the skills environment
 % Usage: \skill{<skill>}{<level>}
 \newcommand\skill[2]{
-        \textbf{#1}    & \foreach \x in {1,...,5}{{\color{accentcolor!80} \ifnumgreater{\x}{#2}{\faCircleThin}{\faCircle}} } \\
+        \textbf{#1}    & \foreach \x in {1,...,5}{{\color{accentcolor!80} \ifnumgreater{\x}{#2}{\faCircle[regular]}{\faCircle}} } \\
     }
 
 \newcolumntype{E}{>{\raggedright\arraybackslash}p{\rightcolumnlength}}
@@ -490,7 +492,9 @@
   \end{minipage}
   \hfill
   \begin{minipage}[t]{\dimexpr(\linewidth/3) - 3em}
+    \begin{flushleft}
     #2
+    \end{flushleft}
   \end{minipage}
   \hfill
   \begin{minipage}[t]{\dimexpr(\linewidth/3) - 3em}
@@ -525,6 +529,7 @@
   \textbf{#4}    & \begin{minipage}[t]{\rightcolumnlength}
                      #5
                    \end{minipage}                   \\*
+                   \medskip
                  & {\foreach \n in {#6}{\cvtag{\n}}}   \\
   }
 
@@ -555,6 +560,7 @@
   \textbf{#4}    & \begin{minipage}[t]{\rightcolumnlength}
                      #5
                    \end{minipage}                   \\*
+                   \medskip
                  & {\foreach \n in {#6}{\cvtag{\n}}}   \\
   }
 
@@ -592,11 +598,11 @@
         \bigskip
     }
 
-\newcommand*\publication[2]
+\newcommand*\publication[3]
     {
         \hfill\\
         \hspace{1em}
         \textbf{#1} \\
-        \emph{\underline{\href{#2}{#2}}}\\
+        {#2} - \emph{{\link{#3}{#3}}}\\
     }
 % -------- END PUBLICATIONS-----------------------------------------------
