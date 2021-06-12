@@ -12,48 +12,47 @@
 
 \documentclass[localFont,alternative]{yaac-another-awesome-cv}
 
-\name{Alan}{Verdugo}
+\name{Mark}{Rofail}
 %\photo{1.6cm}{me.png}
-\tagline{Software engineer}
+\tagline{Software Engineer}
 \socialinfo{
-    \email{factorpolar@gmail.com}
-    \linkedin{alanverdugo}
-    \github{alanverdugo}
-    %\infos{kippel.net/blog}
-    \blog{kippel.net/blog}
-    %\cvpdf{kippel.net/CV.pdf}
-    %\smartphone{+687 123 456}
-    \address{Guadalajara, Mexico}\\
+    \linkedin{markmrofail} \github{markrofail} \\
+    \smartphone{+20 114 038 8266} \email{markm.rofail@gmail.com} \\
+    \address{Alexandria, Egypt} 
 }
 
 %------------------------------------------
 \begin{document}
-
     \makecvheader
 
-    %--------------------SECTIONS-----------------------------------
-    %\input{section_headline}
-    %\input{section_schooling}
+    % -------------------- SECTIONS --------------------
+    % Page 1
+    % Section biography
+    \input{sections/headline}
 
     % Section competence
-    \input{section_competences}
+    \input{sections/competences}
 
     % Section experience
-    \input{section_experience_short}
+    \input{sections/experience_short}
 
+    % Section education
+    \input{sections/education}
+    \newpage
+
+    % Page 2
     % Section certifications
-    \input{section_certifications}
+    \input{sections/certifications}
 
     % Section languages, interests and strengths
-    \input{section_languages}
+    \input{sections/languages}
 
     % Section coursework
-    \input{section_coursework}
+    \input{sections/coursework}
 
-    %\newpage
 
     % Section projects
-    \input{section_projects}
+    \input{sections/projects}
 
     % Section interests
     %\input{section_interests}
@@ -67,6 +66,6 @@
     %\input{section_references}
 
     % Section publications
-    \input{section_publications}
+    \input{sections/publications}
 
 \end{document}

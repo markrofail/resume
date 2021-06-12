@@ -194,7 +194,7 @@
 
 % Render author's name
 % Usage: \user{<firstanme>}{<lastname>}
-\newcommand\user[2]{\color{accentcolor}{\LARGE \textsc{\textbf{#1}} \textsc{\textbf{#2}}}\color{Black}}
+\newcommand\user[2]{\color{accentcolor}{\LARGE #1 \textsc{\textbf{#2}}}\color{Black}}
 
 % Render a text with its symbol
 % Usage; \socialtext{<icon>}{<label>}
@@ -295,7 +295,7 @@
       \begin{minipage}{\dimexpr\linewidth-\@photodiameter-2em}
     }
     \color{accentcolor}\user{\@firstname}{\@lastname}\color{black}\\
-    \small{\@socialinfo}
+    {\@socialinfo}
     \end{minipage}
     \ifdef{\@photodiameter}{
       \begin{minipage}{\@photodiameter}
@@ -311,8 +311,8 @@
     }
     \user{\@firstname}{\@lastname}\\
     \resumetitle{\@tagline}
-    \smallskip\\
-    \small{\@socialinfo}
+    \medskip\\
+    {\@socialinfo}
     \end{minipage}
     \ifdef{\@photodiameter}{
       \begin{minipage}{\@photodiameter}
@@ -447,7 +447,8 @@
   \textbf{#4}    & \begin{minipage}[t]{\rightcolumnlength}
   					         #5
                    \end{minipage}										\\*
-                 & \footnotesize{\foreach \n in {#6}{\cvtag{\n}}} 	\\
+                   \medskip
+                 & {\foreach \n in {#6}{\cvtag{\n}}} 	\\
   }
 
 % Render a consultant experience in the experiences environment
@@ -465,7 +466,8 @@
   				       & 	\begin{minipage}[t]{\rightcolumnlength}
   						        #8
                    	\end{minipage}										\\*
-                 & \footnotesize{\foreach \n in {#9}{\cvtag{\n}}} 	\\
+                   \medskip
+                 & {\foreach \n in {#9}{\cvtag{\n}}} 	\\
   }
 
 
@@ -523,7 +525,7 @@
   \textbf{#4}    & \begin{minipage}[t]{\rightcolumnlength}
                      #5
                    \end{minipage}                   \\*
-                 & \footnotesize{\foreach \n in {#6}{\cvtag{\n}}}   \\
+                 & {\foreach \n in {#6}{\cvtag{\n}}}   \\
   }
 
 % -------- END PROJECTS -------------------------------------------------
@@ -553,7 +555,7 @@
   \textbf{#4}    & \begin{minipage}[t]{\rightcolumnlength}
                      #5
                    \end{minipage}                   \\*
-                 & \footnotesize{\foreach \n in {#6}{\cvtag{\n}}}   \\
+                 & {\foreach \n in {#6}{\cvtag{\n}}}   \\
   }
 
 % -------- END VOLUNTEER-----------------------------------------------
