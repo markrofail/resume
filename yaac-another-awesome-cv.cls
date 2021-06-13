@@ -69,7 +69,7 @@
 
 \DeclareUnicodeCharacter{00E9}{\'{e}}
 % Define default accent colors
-\definecolor{basecolor}{HTML}{000066}       %BLUE
+\definecolor{basecolor}{HTML}{000066}
 
 \ifundef{\@green}
     {
@@ -131,7 +131,6 @@
 %
 
 % Define font to use according to localFont option
-\defaultfontfeatures{ Scale = MatchUppercase } 
 \ifundef{\@local}
 {
     %\setmainfont[BoldFont = Helvetica Neue, ItalicFont=Helvetica Neue Thin Italic ,SmallCapsFont = Helvetica Neue Light]{Helvetica Neue Thin}
@@ -141,7 +140,6 @@
 }
 {
     \setmainfont{SourceSansPro-Light}[
-        Scale = 1,
         Path = fonts/, 
         BoldFont = SourceSansPro-Regular, 
         ItalicFont = SourceSansPro-LightIt]
